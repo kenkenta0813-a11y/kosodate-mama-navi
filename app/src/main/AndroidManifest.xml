@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
-        android:label="子育てママナビ"
+        android:label="全国子育て・ひとり親応援ナビ"
         android:theme="@android:style/Theme.Material.Light.NoActionBar">
 
         <activity

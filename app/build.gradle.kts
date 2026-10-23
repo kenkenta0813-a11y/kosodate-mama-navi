@@ -5,7 +5,12 @@ plugins {
 }
 
 android {
-    namespace = "com.kenkenta.kosodatemamanavi"
+   
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+ namespace = "com.kenkenta.kosodatemamanavi"
     compileSdk = 35
 
     defaultConfig {

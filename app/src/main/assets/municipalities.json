@@ -1,1 +1,76 @@
-{}
+
+package com.kenkenta.kosodatemamanavi
+
+import android.app.Activity
+import android.os.Bundle
+import android.graphics.Color
+import android.widget.*
+
+class MainActivity : Activity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        showHome()
+    }
+
+    private fun showHome() {
+        val names = listOf(
+            "都道府県から探す",
+            "市区町村から探す",
+            "妊娠・出産",
+            "子育て支援",
+            "保育園・幼稚園",
+            "医療・病院",
+            "ひとり親支援",
+            "相談窓口",
+            "お気に入り"
+        )
+        val layout = baseLayout("全国子育て支援ナビ")
+        names.forEach { name ->
+            val button = Button(this)
+            button.text = name
+            button.setOnClickListener { showPage(name) }
+            layout.addView(button)
+        }
+    }
+
+    private fun showPage(name: String) {
+        val layout = baseLayout(name)
+        val message = TextView(this)
+        message.text = when (name) {
+            "都道府県から探す" -> "都道府県の選択機能は準備中です。"
+            "市区町村から探す" -> "市区町村の選択機能は準備中です。"
+            "お気に入り" -> "お気に入り機能は準備中です。"
+            else -> name + " の詳しい情報は準備中です。"
+        }
+        message.textSize = 18f
+        layout.addView(message)
+
+        val back = Button(this)
+        back.text = "トップ画面に戻る"
+        back.setOnClickListener { showHome() }
+        layout.addView(back)
+    }
+
+    private fun baseLayout(title: String): LinearLayout {
+        val layout = LinearLayout(this)
+        layout.orientation = LinearLayout.VERTICAL
+        layout.setPadding(24, 32, 24, 24)
+        layout.setBackgroundColor(Color.rgb(255, 245, 250))
+
+        val heading = TextView(this)
+        heading.text = title
+        heading.textSize = 25f
+        heading.setTextColor(Color.rgb(190, 60, 120))
+        layout.addView(heading)
+
+        val scroll = ScrollView(this)
+        scroll.addView(layout)
+        setContentView(scroll)
+        return layout
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        showHome()
+    }
+}

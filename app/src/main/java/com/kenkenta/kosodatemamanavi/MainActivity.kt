@@ -1,4 +1,3 @@
-
 package com.kenkenta.kosodatemamanavi
 
 import android.app.Activity
@@ -8,11 +7,17 @@ import android.widget.TextView
 import android.widget.Button
 import android.widget.ScrollView
 import android.graphics.Color
+import android.content.Intent
+import android.net.Uri
 
 class MainActivity : Activity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        showMenu()
+    }
 
+    private fun showMenu() {
         val layout = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setPadding(32, 40, 32, 20)
@@ -55,6 +60,10 @@ class MainActivity : Activity() {
                 text = item
                 textSize = 17f
                 isAllCaps = false
+
+                setOnClickListener {
+                    showPage(item)
+                }
             }
             menu.addView(button)
         }
@@ -62,5 +71,41 @@ class MainActivity : Activity() {
         scroll.addView(menu)
         layout.addView(scroll)
         setContentView(layout)
+    }
+
+    private fun showPage(item: String) {
+        val layout = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(32, 40, 32, 20)
+            setBackgroundColor(Color.rgb(255, 245, 250))
+        }
+
+        val title = TextView(this).apply {
+            text = item
+            textSize = 26f
+            setTextColor(Color.rgb(190, 60, 120))
+        }
+        layout.addView(title)
+
+        val message = TextView(this).apply {
+            text = "「$item」の画面です。\n現在、機能を準備しています。"
+            textSize = 18f
+            setPadding(0, 40, 0, 40)
+        }
+        layout.addView(message)
+
+        val backButton = Button(this).apply {
+            text = "トップ画面に戻る"
+            setOnClickListener {
+                showMenu()
+            }
+        }
+        layout.addView(backButton)
+
+        setContentView(layout)
+    }
+
+    override fun onBackPressed() {
+        showMenu()
     }
 }

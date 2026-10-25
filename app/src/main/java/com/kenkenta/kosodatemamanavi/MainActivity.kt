@@ -119,7 +119,10 @@ class MainActivity : Activity() {
         label(root, "※制度の金額・対象年齢・申請期限・施設情報は自治体や年度で変わります。必ず公式情報で確認してください。", 14f)
         if (obj != null) {
             val url = obj.optString("url")
-            button(root, "自治体公式サイトを開く") { openUrl(url) }
+           button(root, "自治体公式サイトを探す") {
+    val q = "$place 自治体 公式ホームページ"
+    openUrl("https://www.google.com/search?q=" + Uri.encode(q))
+} 
             button(root, "この自治体の「$category」を検索") {
                 val q = "$place $category 公式"
                 openUrl("https://www.google.com/search?q=" + Uri.encode(q))

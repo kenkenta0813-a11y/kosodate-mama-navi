@@ -30,7 +30,7 @@ class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         try {
-            records = JSONArray(assets.open("municipalities.json").bufferedReader().use { it.readText() })
+            records = JSONArray(assets.open("municipalities_urls_complete.json")").bufferedReader().use { it.readText() })
         } catch (e: Exception) {
             Toast.makeText(this, "自治体データを読み込めません。assets/municipalities.jsonを確認してください", Toast.LENGTH_LONG).show()
         }

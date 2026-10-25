@@ -124,7 +124,7 @@ class MainActivity : Activity() {
                 val q = "$place $category 公式"
                 openUrl("https://www.google.com/search?q=" + Uri.encode(q))
             }
-            val key = "${obj.optString("lgcode")}|$category"
+           val key = "${obj.optString("pref")}|${obj.optString("city")}|$category"
             button(root, if (prefs.getBoolean(key, false)) "★ お気に入りを解除" else "☆ お気に入りに保存") {
                 val newValue = !prefs.getBoolean(key, false)
                 prefs.edit().putBoolean(key, newValue).apply()
@@ -143,7 +143,7 @@ class MainActivity : Activity() {
         for (i in 0 until records.length()) {
             val obj = records.optJSONObject(i) ?: continue
             for (cat in categories) {
-                if (prefs.getBoolean("${obj.optString("lgcode")}|$cat", false)) {
+                if (prefs.getBoolean("${obj.optString("pref")}|${obj.optString("city")}|$cat", false)) {
                     val index = i
                     count++
                     button(root, "${obj.optString("pref")} ${obj.optString("city")} / $cat") { detail(cat, index) }

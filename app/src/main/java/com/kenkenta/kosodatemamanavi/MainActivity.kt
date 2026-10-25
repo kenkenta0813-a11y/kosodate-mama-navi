@@ -3,7 +3,7 @@ package com.kenkenta.kosodatemamanavi
 
 import android.app.Activity
 import android.os.Bundle
-import android.content.Intentrt
+import android.content.Intent
 import android.net.Uri
 import android.graphics.Color
 import android.widget.*

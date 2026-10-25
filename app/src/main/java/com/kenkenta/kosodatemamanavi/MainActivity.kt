@@ -3,7 +3,7 @@ package com.kenkenta.kosodatemamanavi
 
 import android.app.Activity
 import android.os.Bundle
-import android.content.Intent
+import android.content.Intentrt
 import android.net.Uri
 import android.graphics.Color
 import android.widget.*
@@ -163,6 +163,5 @@ class MainActivity : Activity() {
         catch (e: Exception) { Toast.makeText(this, "ブラウザを開けません", Toast.LENGTH_SHORT).show() }
     }
 
-    @Deprecated("Deprecated in Java")
-    override fun onBackPressed() { home() }
+   
 }

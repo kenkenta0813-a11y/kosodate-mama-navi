@@ -106,6 +106,7 @@ class MainActivity : Activity() {
         val name = "${obj.optString("pref")} ${obj.optString("city")}"
         val root = page(name)
         button(root, "自治体の公式サイト") { openUrl(obj.optString("url")) }
+       Toast.makeText(this, obj.optString("url"), Toast.LENGTH_LONG).show()
         categories.forEach { cat -> button(root, cat) { detail(cat, index) } }
         button(root, "市区町村一覧に戻る") { cities(obj.optString("pref")) }
         button(root, "トップに戻る") { home() }

@@ -68,26 +68,24 @@ class MainActivity : Activity() {
         })
     }
 
-        private fun home() {
+           private fun home() {
         val root = page("全国子育てママ・シングルパパ応援ナビ")
-
         label(root, "ALL JAPAN 47", 18f, accent)
         label(root, "全国47都道府県・1741市区町村対応")
-        label(root, "わたしのまちの支援を、迷わず見つけよう。", 20f, accent)
         label(root, "ママ・パパ・ひとり親家庭を応援します。")
-        label(root, "引っ越し予定の地域の子育て支援も調べられます。")
+        label(root, "お子さんの年齢や引っ越し予定の地域から探せます。")
 
-        button(root, "都道府県・市区町村を選ぶ") { prefectures() }
-        button(root, "お子さんの年齢・状況から探す") { prefectures() }
+        button(root, "都道府県・市区町村から探す") { prefectures() }
+        button(root, "0歳・1〜2歳・3〜5歳・6〜12歳") { prefectures() }
+        button(root, "妊娠中・出産予定") { detail("妊娠・出産", null) }
         button(root, "引っ越し予定の地域を探す") { prefectures() }
 
         label(root, "目的からさがす", 20f, accent)
         categories.forEach { cat ->
             button(root, cat) { detail(cat, null) }
         }
-
         button(root, "♡ お気に入り") { favorites() }
-        button(root, "公式情報を探す") { prefectures() }
+        button(root, "公式情報") { prefectures() }
     }
 
     private fun prefectures() {

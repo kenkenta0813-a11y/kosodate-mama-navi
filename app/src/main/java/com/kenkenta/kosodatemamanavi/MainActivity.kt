@@ -8,6 +8,7 @@ import android.net.Uri
 import android.graphics.Color
 import android.widget.*
 import org.json.JSONArray
+import android.widget.ImageView
 
 class MainActivity : Activity() {
     private val bg = Color.rgb(255, 245, 250)
@@ -70,6 +71,10 @@ class MainActivity : Activity() {
 
            private fun home() {
         val root = page("全国子育てママ・シングルパパ応援ナビ")
+        val image = ImageView(this)
+        image.setImageResource(R.drawable.kosodate_top)
+        image.adjustViewBounds = true
+root.addView(image)
         label(root, "ALL JAPAN 47", 18f, accent)
         label(root, "全国47都道府県・1741市区町村対応")
         label(root, "ママ・パパ・ひとり親家庭を応援します。")

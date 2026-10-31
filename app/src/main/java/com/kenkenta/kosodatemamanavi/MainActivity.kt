@@ -69,7 +69,7 @@ class MainActivity : Activity() {
     }
 
     private fun home() {
-        val root = page("全国子育て支援ナビ")
+        val root = page("全国子育てママ・シングルパパ応援ナビ")
         label(root, "全国47都道府県の自治体を選んで、子育て情報を探せます。")
         button(root, "都道府県・市区町村から探す") { prefectures() }
         button(root, "お気に入り") { favorites() }

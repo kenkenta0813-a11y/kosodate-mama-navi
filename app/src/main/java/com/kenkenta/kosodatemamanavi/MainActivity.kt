@@ -8,6 +8,8 @@ import android.net.Uri
 import android.graphics.Color
 import android.widget.*
 import org.json.JSONArray
+import android.graphics.BitmapFactory
+import android.graphics.Bitmap
 
 class MainActivity : Activity() {
     private val bg = Color.rgb(255, 245, 250)
@@ -70,6 +72,10 @@ class MainActivity : Activity() {
 
     private fun home() {
         val root = page("全国子育てママ・シングルパパ応援ナビ")
+        val image = ImageView(this)
+        val bitmap = BitmapFactory.decodeStream(assets.open("kosodate_top.png"))
+        image.setImageBitmap(bitmap)
+        root.addView(image)
         label(root, "全国47都道府県の自治体を選んで、子育て情報を探せます。")
         button(root, "都道府県・市区町村から探す") { prefectures() }
         button(root, "お気に入り") { favorites() }

@@ -76,6 +76,11 @@ class MainActivity : Activity() {
         val bitmap = BitmapFactory.decodeStream(assets.open("kosodate_top.png"))
         image.setImageBitmap(bitmap)
         root.addView(image)
+        image.adjustViewBounds = true
+        image.layoutParams = LinearLayout.LayoutParams(
+    LinearLayout.LayoutParams.MATCH_PARENT,
+    LinearLayout.LayoutParams.WRAP_CONTENT
+)
         label(root, "全国47都道府県の自治体を選んで、子育て情報を探せます。")
         button(root, "都道府県・市区町村から探す") { prefectures() }
         button(root, "お気に入り") { favorites() }

@@ -104,11 +104,7 @@ class MainActivity : Activity() {
   }
         
             
-        label(root, "全国47都道府県の自治体を選んで、子育て情報を探せます。")
-        button(root, "都道府県・市区町村から探す") { prefectures() }
-        button(root, "お気に入り") { favorites() }
-        categories.forEach { cat -> button(root, cat) { detail(cat, null) } }
-    }
+           }
 
     private fun prefectures() {
         val root = page("都道府県を選択")

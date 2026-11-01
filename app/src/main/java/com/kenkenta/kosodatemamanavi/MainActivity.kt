@@ -82,7 +82,7 @@ class MainActivity : Activity() {
     LinearLayout.LayoutParams.WRAP_CONTENT
 )
         image.setOnTouchListener { _, event ->
-        if (event.action == android.view.MotionEvent.ACTION_UP) {
+        if (event.action == android.view.MotionEvent.ACTION_DOWN) {
         val x = event.x / image.width
         val y = event.y / image.height
         if (y > 0.52f && y < 0.70f && x > 0.75f) {

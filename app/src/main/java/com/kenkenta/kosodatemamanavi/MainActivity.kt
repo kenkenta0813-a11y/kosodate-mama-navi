@@ -105,7 +105,7 @@ class MainActivity : Activity() {
         prefectures()
     }
     .show()
-          }
+          
         
         } else if (y > 0.90f && x > 0.33f && x < 0.67f) {
     favorites()

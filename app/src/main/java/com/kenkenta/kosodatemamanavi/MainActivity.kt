@@ -112,9 +112,9 @@ class MainActivity : Activity() {
         }    
         true
   }
-        
+  }      
             
-           }
+           
 
     private fun prefectures() {
         val root = page("都道府県を選択")

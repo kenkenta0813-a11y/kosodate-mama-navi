@@ -106,8 +106,11 @@ class MainActivity : Activity() {
     }
     .show()
           }
-         }
-        false
+        
+        } else if (y > 0.90f && x > 0.33f && x < 0.67f) {
+    favorites()
+        }    
+        true
   }
         
             

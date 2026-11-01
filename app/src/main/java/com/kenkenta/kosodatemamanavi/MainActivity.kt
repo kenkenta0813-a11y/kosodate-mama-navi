@@ -99,7 +99,12 @@ class MainActivity : Activity() {
 
         
       } else if (y > 0.70f && y < 0.85f) {
-           prefectures()
+    android.app.AlertDialog.Builder(this)
+    .setTitle("引っ越し予定")
+    .setItems(arrayOf("引っ越し予定あり", "引っ越し予定なし")) { _, _ ->
+        prefectures()
+    }
+    .show()
           }
          }
         false

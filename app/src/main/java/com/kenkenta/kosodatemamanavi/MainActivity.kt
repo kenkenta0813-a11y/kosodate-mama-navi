@@ -85,7 +85,9 @@ class MainActivity : Activity() {
         if (event.action == android.view.MotionEvent.ACTION_UP) {
         val x = event.x / image.width
         val y = event.y / image.height
-        if (y > 0.40f && y < 0.52f) {
+        if (y > 0.52f && y < 0.70f && x > 0.75f) {
+    prefectures()
+} else if (y > 0.40f && y < 0.52f) {
         prefectures()
 } else if (y > 0.52f && y < 0.70f) {
     android.app.AlertDialog.Builder(this)

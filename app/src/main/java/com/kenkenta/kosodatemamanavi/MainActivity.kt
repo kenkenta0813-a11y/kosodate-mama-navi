@@ -81,6 +81,29 @@ class MainActivity : Activity() {
     LinearLayout.LayoutParams.MATCH_PARENT,
     LinearLayout.LayoutParams.WRAP_CONTENT
 )
+        image.setOnTouchListener { _, event ->
+        if (event.action == android.view.MotionEvent.ACTION_UP) {
+        val x = event.x / image.width
+        val y = event.y / image.height
+        if (y > 0.40f && y < 0.52f) {
+        prefectures()
+} else if (y > 0.52f && y < 0.70f) {
+    android.app.AlertDialog.Builder(this)
+    .setTitle("お子さんの年齢を選択")
+    .setItems(arrayOf("0歳", "1〜2歳", "3〜5歳", "6〜12歳", "妊娠中・出産予定")) { _, which ->
+        Toast.makeText(this, "選択: " + arrayOf("0歳", "1〜2歳", "3〜5歳", "6〜12歳", "妊娠中・出産予定")[which], Toast.LENGTH_SHORT).show()
+    }
+    .show()
+
+        
+      } else if (y > 0.70f && y < 0.85f) {
+           prefectures()
+          }
+         }
+        false
+  }
+        
+            
         label(root, "全国47都道府県の自治体を選んで、子育て情報を探せます。")
         button(root, "都道府県・市区町村から探す") { prefectures() }
         button(root, "お気に入り") { favorites() }

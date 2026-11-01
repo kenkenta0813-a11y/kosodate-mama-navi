@@ -91,7 +91,7 @@ class MainActivity : Activity() {
     android.app.AlertDialog.Builder(this)
     .setTitle("お子さんの年齢を選択")
     .setItems(arrayOf("0歳", "1〜2歳", "3〜5歳", "6〜12歳", "妊娠中・出産予定")) { _, which ->
-        Toast.makeText(this, "選択: " + arrayOf("0歳", "1〜2歳", "3〜5歳", "6〜12歳", "妊娠中・出産予定")[which], Toast.LENGTH_SHORT).show()
+        prefectures()
     }
     .show()
 

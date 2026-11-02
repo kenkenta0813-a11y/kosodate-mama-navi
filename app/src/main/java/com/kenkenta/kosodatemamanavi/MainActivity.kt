@@ -86,11 +86,17 @@ class MainActivity : Activity() {
                 val x = event.x / image.width.toFloat()
                 val y = event.y / image.height.toFloat()
 
-                when {
-                    y > 0.90f && x > 0.33f && x < 0.67f -> {
+                                when {
+                    y > 0.925f && x > 0.33f && x < 0.67f -> {
                         favorites()
                     }
-                    y > 0.70f && y < 0.85f -> {
+                    y > 0.925f && x < 0.33f -> {
+                        prefectures()
+                    }
+                    y > 0.925f && x >= 0.67f -> {
+                        prefectures()
+                    }
+                    y > 0.55f && y < 0.70f && x > 0.75f -> {
                         android.app.AlertDialog.Builder(this)
                             .setTitle("引っ越し予定")
                             .setItems(arrayOf("引っ越し予定あり", "引っ越し予定なし")) { _, _ ->
@@ -98,10 +104,7 @@ class MainActivity : Activity() {
                             }
                             .show()
                     }
-                    y > 0.52f && y < 0.70f && x > 0.75f -> {
-                        prefectures()
-                    }
-                    y > 0.52f && y < 0.70f -> {
+                    y > 0.55f && y < 0.70f -> {
                         android.app.AlertDialog.Builder(this)
                             .setTitle("お子さんの年齢を選択")
                             .setItems(arrayOf("0歳", "1〜2歳", "3〜5歳", "6〜12歳", "妊娠中・出産予定")) { _, _ ->
@@ -109,7 +112,10 @@ class MainActivity : Activity() {
                             }
                             .show()
                     }
-                    y > 0.40f && y < 0.52f -> {
+                    y > 0.40f && y < 0.55f -> {
+                        prefectures()
+                    }
+                    y > 0.70f && y < 0.925f -> {
                         prefectures()
                     }
                 }

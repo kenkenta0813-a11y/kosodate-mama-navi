@@ -20,6 +20,20 @@ android {
         versionCode = 1
         versionName = "1.0"
     }
+  signingConfigs {
+
+        create("release") {
+            storeFile = file("kosodate-upload.jks")
+            storePassword = System.getenv("KEYSTORE_PASSWORD")
+            keyAlias = System.getenv("KEY_ALIAS")
+            keyPassword = System.getenv("KEY_PASSWORD")
+        }
+}
+    buildTypes {
+        getByName("release") {
+            signingConfig = signingConfigs.getByName("release")
+    }
+    }
 }
 
 dependencies {

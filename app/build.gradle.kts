@@ -11,12 +11,12 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
  namespace = "com.kenkenta.kosodatemamanavi"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.kenkenta.kosodatemamanavi"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
     }

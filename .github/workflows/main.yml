@@ -29,9 +29,15 @@ jobs:
 
       - name: Build APK
         run: gradle assembleDebug
-                  
+      - name: Restore keystore
+        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > app/kosodate-upload.jks
+      
       - name: Build AAB
         run: gradle bundleRelease
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
